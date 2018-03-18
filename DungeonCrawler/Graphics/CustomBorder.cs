@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 
 namespace DungeonCrawler.Graphix
@@ -28,16 +24,22 @@ namespace DungeonCrawler.Graphix
         {
             Dimensions = dimensions;
             _corners = new Bitmap[4];
-            this[0, 0] = new Bitmap(Dimensions.VSize(1), Dimensions.HSize(1));
-            this[0, 1] = new Bitmap(Dimensions.VSize(3), Dimensions.HSize(1));
-            this[0, 2] = new Bitmap(Dimensions.VSize(3), Dimensions.HSize(3));
-            this[0, 3] = new Bitmap(Dimensions.VSize(1), Dimensions.HSize(3));
+
+            // Initializing each corner sprite Bitmap with proper the dimensions
+            this[0, 0] = new Bitmap(VSize(1), HSize(1));
+            this[0, 1] = new Bitmap(VSize(3), HSize(1));
+            this[0, 2] = new Bitmap(VSize(3), HSize(3));
+            this[0, 3] = new Bitmap(VSize(1), HSize(3));
             _edges = new Bitmap[4];
-            this[1, 0] = new Bitmap(Dimensions.VSize(2), Dimensions.HSize(1));
-            this[1, 1] = new Bitmap(Dimensions.VSize(3), Dimensions.HSize(2));
-            this[1, 2] = new Bitmap(Dimensions.VSize(2), Dimensions.HSize(3));
-            this[1, 3] = new Bitmap(Dimensions.VSize(1), Dimensions.HSize(2));
-            Body = new Bitmap(Dimensions.VSize(2), Dimensions.HSize(2));
+
+            // Initializing each edge sprite Bitmap with proper the dimensions
+            this[1, 0] = new Bitmap(VSize(2), HSize(1));
+            this[1, 1] = new Bitmap(VSize(3), HSize(2));
+            this[1, 2] = new Bitmap(VSize(2), HSize(3));
+            this[1, 3] = new Bitmap(VSize(1), HSize(2));
+
+            // Initializing the body sprite Bitmap with proper the dimensions
+            Body = new Bitmap(VSize(2), HSize(2));
         }
 
         // vectors where we store cornes and edge sprites
@@ -63,7 +65,7 @@ namespace DungeonCrawler.Graphix
         /// <exception cref="ArgumentException">
         ///   if <paramref name="count"/> is less than <c>0</c> or biggger than <c>3</c>.
         /// </exception>
-        /// <returns>A <seealso cref="int"/></returns>
+        /// <returns>A <seealso cref="int"/>.</returns>
         public int HSize(int count) => Dimensions.HSize(count);
 
         /// <summary>
@@ -73,7 +75,7 @@ namespace DungeonCrawler.Graphix
         /// <exception cref="ArgumentException">
         ///   if <paramref name="count"/> is less than <c>0</c> or biggger than <c>3</c>.
         /// </exception>
-        /// <returns>A <seealso cref="int"/></returns>
+        /// <returns>A <seealso cref="int"/>.</returns>
         public int VSize(int count) => Dimensions.VSize(count);
 
         /// <summary>
@@ -155,6 +157,8 @@ namespace DungeonCrawler.Graphix
         {
             CustomBorder newBorder = new CustomBorder(dimensions);
             Graphics cutter;
+
+            // Saving each corner sprite (from top-left counterclockwise)
             cutter = Graphics.FromImage(newBorder[0, 0]);
             cutter.DrawImage(image, 0, 0);
             cutter = Graphics.FromImage(newBorder[0, 1]);
@@ -164,6 +168,7 @@ namespace DungeonCrawler.Graphix
             cutter = Graphics.FromImage(newBorder[0, 3]);
             cutter.DrawImage(image, 0, -dimensions.HSize(1) - dimensions.HSize(2));
 
+            // Saving each edge sprite (from top counterclockwise)
             cutter = Graphics.FromImage(newBorder[1, 0]);
             cutter.DrawImage(image, -dimensions.VSize(1), 0);
             cutter = Graphics.FromImage(newBorder[1, 1]);
@@ -173,8 +178,10 @@ namespace DungeonCrawler.Graphix
             cutter = Graphics.FromImage(newBorder[1, 3]);
             cutter.DrawImage(image, 0, -dimensions.HSize(1));
 
+            // Saving body sprite
             cutter = Graphics.FromImage(newBorder.Body);
             cutter.DrawImage(image, -dimensions.VSize(1), -dimensions.HSize(1));
+
             return newBorder;
         }
 
