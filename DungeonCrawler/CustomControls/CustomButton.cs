@@ -29,6 +29,7 @@ namespace DungeonCrawler.CustomControls
             BorderColor = BackColor;
             BackColor = Color.Transparent;
 
+            // Set custom draw
             Paint += new PaintEventHandler(CustomButton_Paint);
         }
 
