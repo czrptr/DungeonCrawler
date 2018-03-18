@@ -48,7 +48,7 @@
     <Compile Include="CustomControls\CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CustomControls\CustomControlHelper.cs" />
+    <Compile Include="Graphics\GraphicsHelper.cs" />
     <Compile Include="Graphics\CustomBorder.cs" />
     <Compile Include="Graphics\CustomBorderDimensions.cs" />
     <Compile Include="MainWindow.cs">
