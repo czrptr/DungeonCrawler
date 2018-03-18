@@ -19,40 +19,37 @@ namespace DungeonCrawler.Graphix
 
         public static void DrawCustomBorder(this Graphics graphics, CustomBorder customBorder, Rectangle rect)
         {
-            graphics.DrawImage(customBorder.Corners[0], rect.Left, rect.Top);
-            graphics.DrawImage(customBorder.Corners[1], rect.Left + rect.Width - customBorder.Dimensions.V3Size, rect.Top);
-            graphics.DrawImage(customBorder.Corners[2], rect.Left + rect.Width - customBorder.Dimensions.V3Size, rect.Top + rect.Height - customBorder.Dimensions.H3Size);
-            graphics.DrawImage(customBorder.Corners[3], rect.Left, rect.Top + rect.Height - customBorder.Dimensions.H3Size);
+            // Drawing each corner (from top-left counterclockwise)
+            graphics.DrawImage(customBorder[0, 0], rect.Left, rect.Top);
+            graphics.DrawImage(customBorder[0, 1], rect.Left + rect.Width - customBorder.VSize(3), rect.Top);
+            graphics.DrawImage(customBorder[0, 2], rect.Left + rect.Width - customBorder.VSize(3), rect.Top + rect.Height - customBorder.HSize(3));
+            graphics.DrawImage(customBorder[0, 3], rect.Left, rect.Top + rect.Height - customBorder.HSize(3));
 
+            // Initialize WrapMode for drawing the edges and fill
             ImageAttributes imgAtt = new ImageAttributes();
             imgAtt.SetWrapMode(WrapMode.Tile);
 
-            Bitmap edge = new Bitmap(rect.Width - customBorder.Dimensions.V1Size - customBorder.Dimensions.V3Size, customBorder.Dimensions.H1Size);
-            Rectangle edgeRect = new Rectangle(0, 0, edge.Width, edge.Height);
-            edge.SetResolution(customBorder.Edges[0].HorizontalResolution, customBorder.Edges[0].VerticalResolution);
-            Graphics.FromImage(edge).DrawImage(customBorder.Edges[0], edgeRect, 0, 0, edge.Width, edge.Height, GraphicsUnit.Pixel, imgAtt);
-            graphics.DrawImage(edge, rect.Left + customBorder.Dimensions.V1Size, rect.Top);
+            /* Drawing each border (from top counterclockwise) */
 
-            edge = new Bitmap(rect.Width - customBorder.Dimensions.V1Size - customBorder.Dimensions.V3Size, customBorder.Dimensions.H3Size);
-            edgeRect = new Rectangle(0, 0, edge.Width, edge.Height);
-            Graphics.FromImage(edge).DrawImage(customBorder.Edges[2], edgeRect, 0, 0, edge.Width, edge.Height, GraphicsUnit.Pixel, imgAtt);
-            graphics.DrawImage(edge, rect.Left + customBorder.Dimensions.V1Size, rect.Top + rect.Height - customBorder.Dimensions.H3Size);
+            // Create a rectagle reprezenting the portion in witch the border will be drawn
+            Rectangle edgeRect = new Rectangle(rect.Left + customBorder.VSize(1), rect.Top, rect.Width - customBorder.VSize(1) - customBorder.VSize(3), customBorder.HSize(1));
+            // Fill that rectangle with the edge sprite
+            graphics.DrawImage(customBorder[1, 0], edgeRect, 0, 0, edgeRect.Width, edgeRect.Height, GraphicsUnit.Pixel, imgAtt);
 
-            
-            edge = new Bitmap(customBorder.Dimensions.V1Size, rect.Height - customBorder.Dimensions.H1Size - customBorder.Dimensions.H3Size);
-            edgeRect = new Rectangle(0, 0, edge.Width, edge.Height);
-            Graphics.FromImage(edge).DrawImage(customBorder.Edges[3], edgeRect, 0, 0, edge.Width, edge.Height, GraphicsUnit.Pixel, imgAtt);
-            graphics.DrawImage(edge, rect.Left, rect.Top + customBorder.Dimensions.H1Size);
+            // Repeat for each edge
+            edgeRect.Y += rect.Height - customBorder.HSize(3);
+            graphics.DrawImage(customBorder[1, 2], edgeRect, 0, 0, edgeRect.Width, edgeRect.Height, GraphicsUnit.Pixel, imgAtt);
 
-            edge = new Bitmap(customBorder.Dimensions.V3Size, rect.Height - customBorder.Dimensions.H1Size - customBorder.Dimensions.H3Size);
-            edgeRect = new Rectangle(0, 0, edge.Width, edge.Height);
-            Graphics.FromImage(edge).DrawImage(customBorder.Edges[1], edgeRect, 0, 0, edge.Width, edge.Height, GraphicsUnit.Pixel, imgAtt);
-            graphics.DrawImage(edge, rect.Left + rect.Width - customBorder.Dimensions.V3Size, rect.Top + customBorder.Dimensions.H1Size);
+            edgeRect = new Rectangle(rect.Left, rect.Top + customBorder.HSize(1), customBorder.VSize(1), rect.Height - customBorder.HSize(1) - customBorder.HSize(3));
+            graphics.DrawImage(customBorder[1, 3], edgeRect, 0, 0, edgeRect.Width, edgeRect.Height, GraphicsUnit.Pixel, imgAtt);
 
-            edge = new Bitmap(rect.Width - customBorder.Dimensions.V1Size - customBorder.Dimensions.V3Size, rect.Height - customBorder.Dimensions.H1Size - customBorder.Dimensions.H3Size);
-            edgeRect = new Rectangle(0, 0, edge.Width, edge.Height);
-            Graphics.FromImage(edge).DrawImage(customBorder.Fill, edgeRect, 0, 0, edge.Width, edge.Height, GraphicsUnit.Pixel, imgAtt);
-            graphics.DrawImage(edge, rect.Left + customBorder.Dimensions.V1Size, rect.Top + customBorder.Dimensions.H1Size);
+            edgeRect.X += rect.Width - customBorder.VSize(3);
+            graphics.DrawImage(customBorder[1, 1], edgeRect, 0, 0, edgeRect.Width, edgeRect.Height, GraphicsUnit.Pixel, imgAtt);
+
+            // Fill middle with CustomBorder.Fill
+            edgeRect = new Rectangle(rect.Left + customBorder.VSize(1), rect.Top + customBorder.HSize(1),
+                rect.Width - customBorder.VSize(1) - customBorder.VSize(3), rect.Height - customBorder.HSize(1) - customBorder.HSize(3));
+            graphics.DrawImage(customBorder.Body, edgeRect, 0, 0, edgeRect.Width, edgeRect.Height, GraphicsUnit.Pixel, imgAtt);
         }
 
         public static void DrawCustomBorder(this Graphics graphics, CustomBorder customBorder, int x, int y, int width, int height)
