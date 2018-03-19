@@ -50,9 +50,9 @@
     <Compile Include="CustomControls\CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Graphics\GraphicsHelper.cs" />
-    <Compile Include="Graphics\CustomBorder.cs" />
-    <Compile Include="Graphics\CustomBorderDimensions.cs" />
+    <Compile Include="Graphix\GraphicsHelper.cs" />
+    <Compile Include="Graphix\CustomBorder.cs" />
+    <Compile Include="Graphix\CustomBorderDimensions.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,9 +87,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Button_Test.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Button_Menus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sprite_ERROR.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

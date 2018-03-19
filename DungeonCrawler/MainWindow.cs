@@ -18,15 +18,21 @@ namespace DungeonCrawler
     {
         public MainWindow()
         {
+            // Set style optimized for user drawn controls
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.DoubleBuffer
+                | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer
+                | ControlStyles.ResizeRedraw, true);
             InitializeComponent();
         }
 
-        private void MainWindow_Paint(object sender, PaintEventArgs e)
+        private void MainWindow_Load(object sender, EventArgs e)
         {
-            CustomBorderDimensions dimensions = new CustomBorderDimensions(3, 1);
-            CustomBorder customBorder = CustomBorder.FromImage(Properties.Resources.Button_Menus, dimensions);
+            
+        }
 
-            e.Graphics.DrawCustomBorder(customBorder, 3, 5, 250, 220);
+        private void customButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
