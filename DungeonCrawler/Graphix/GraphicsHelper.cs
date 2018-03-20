@@ -11,12 +11,14 @@ namespace DungeonCrawler.Graphix
 {
     public static class GraphicsHelper
     {
-        static void FillPixel(this Graphics graphics, Brush brush, int x, int y)
+        public static void FillPixel(this Graphics graphics, Brush brush, int x, int y)
         {
             graphics.FillRectangle(brush, x, y, 1, 1);
         }
 
-        public static void FillCustomBorder(this Graphics graphics, Image borderImage, Rectangle drawRect, Rectangle cutRect)
+        //public static void Fill(this Graphics graphics, Brush brush);
+
+        public static void FillCustomBorder(this Graphics graphics, Bitmap borderImage, Rectangle drawRect, Rectangle cutRect)
         {
             //graphics.FillRectangle(Brushes.LightGreen, drawRect);
             int leftX = borderImage.Width - cutRect.X - cutRect.Width;
