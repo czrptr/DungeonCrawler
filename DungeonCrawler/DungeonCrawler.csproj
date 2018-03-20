@@ -47,12 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomControls\CustomButton.cs">
+    <Compile Include="CustomControls\MenuButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Graphix\GraphicsHelper.cs" />
-    <Compile Include="Graphix\CustomBorder.cs" />
-    <Compile Include="Graphix\CustomBorderDimensions.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,13 +86,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Button_Test.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Button_Menus.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Sprite_ERROR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buttons\Button_Menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buttons\Button_Default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buttons\Button_Menu_Body_Overlay.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

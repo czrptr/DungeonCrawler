@@ -7,9 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using DungeonCrawler.Graphix;
+using System.Diagnostics;
 using DungeonCrawler.CustomControls;
 
 namespace DungeonCrawler
@@ -27,7 +25,7 @@ namespace DungeonCrawler
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void customButton1_Click(object sender, EventArgs e)
