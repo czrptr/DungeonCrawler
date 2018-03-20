@@ -40,9 +40,9 @@
             this.customButton1.ButtonColor = System.Drawing.Color.Transparent;
             this.customButton1.FlatAppearance.BorderSize = 0;
             this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customButton1.Location = new System.Drawing.Point(160, 155);
+            this.customButton1.Location = new System.Drawing.Point(121, 157);
             this.customButton1.Name = "customButton1";
-            this.customButton1.Size = new System.Drawing.Size(75, 23);
+            this.customButton1.Size = new System.Drawing.Size(107, 65);
             this.customButton1.TabIndex = 0;
             this.customButton1.Text = "customButton1";
             this.customButton1.UseVisualStyleBackColor = false;
