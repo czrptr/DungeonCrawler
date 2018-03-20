@@ -63,9 +63,29 @@ namespace DungeonCrawler.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Button_Menus {
+        internal static System.Drawing.Bitmap Button_Default {
             get {
-                object obj = ResourceManager.GetObject("Button_Menus", resourceCulture);
+                object obj = ResourceManager.GetObject("Button_Default", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Button_Menu {
+            get {
+                object obj = ResourceManager.GetObject("Button_Menu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Button_Menu_Body_Overlay {
+            get {
+                object obj = ResourceManager.GetObject("Button_Menu_Body_Overlay", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
