@@ -72,7 +72,8 @@ namespace DungeonCrawler.CustomControls
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            e.Graphics.FillCustomBorder(_border, DisplayRectangle);
+            e.Graphics.FillCustomBorder(_borderImage, DisplayRectangle,
+                new Rectangle(_borderDimensions.V1Size, _borderDimensions.H1Size, _borderDimensions.V2Size, _borderDimensions.H2Size));
         }
     }
 }
