@@ -33,24 +33,18 @@
             // 
             // menuButton1
             // 
-            this.menuButton1.BackColor = System.Drawing.Color.Transparent;
-            this.menuButton1.BodyColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.menuButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.menuButton1.FlatAppearance.BorderSize = 0;
-            this.menuButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menuButton1.Location = new System.Drawing.Point(135, 163);
+            this.menuButton1.BackgroundImage = global::DungeonCrawler.Properties.Resources.Icon_Close;
+            this.menuButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.menuButton1.Location = new System.Drawing.Point(134, 179);
             this.menuButton1.Name = "menuButton1";
-            this.menuButton1.OverlayTransparency = ((byte)(0));
-            this.menuButton1.Size = new System.Drawing.Size(109, 62);
-            this.menuButton1.TabIndex = 0;
-            this.menuButton1.Text = "menuButton1";
-            this.menuButton1.UseVisualStyleBackColor = false;
+            this.menuButton1.Size = new System.Drawing.Size(24, 24);
+            this.menuButton1.TabIndex = 2;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(391, 327);
             this.Controls.Add(this.menuButton1);
             this.Name = "MainWindow";
@@ -62,7 +56,6 @@
         }
 
         #endregion
-
         private CustomControls.MenuButton menuButton1;
     }
 }

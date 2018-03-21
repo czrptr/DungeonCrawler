@@ -25,12 +25,6 @@ namespace DungeonCrawler
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void customButton1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

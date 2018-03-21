@@ -89,13 +89,13 @@
     <None Include="Resources\Sprite_ERROR.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Buttons\Button_Menu.png" />
+    <None Include="Resources\Buttons\Button_Menu_Colored.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Buttons\Button_Default.png" />
+    <None Include="Resources\Buttons\Button_Menu_Colored_Hover.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Buttons\Button_Menu_Body_Overlay.png" />
+    <None Include="Resources\Icons\Icon_Close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
