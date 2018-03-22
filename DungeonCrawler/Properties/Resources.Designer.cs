@@ -93,9 +93,39 @@ namespace DungeonCrawler.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Icon_Minimize {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Minimize", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Panel_Menu {
+            get {
+                object obj = ResourceManager.GetObject("Panel_Menu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Sprite_ERROR {
             get {
                 object obj = ResourceManager.GetObject("Sprite_ERROR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Titlebar {
+            get {
+                object obj = ResourceManager.GetObject("Titlebar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
