@@ -14,7 +14,7 @@ using DungeonCrawler.Properties;
 
 namespace DungeonCrawler.CustomControls
 {
-    class MenuButton : Control
+    class MenuButton : Button
     {
         private Bitmap look = Properties.Resources.Button_Menu;
         private Rectangle borderDimensions = new Rectangle(3, 3, 1, 1);
@@ -33,6 +33,13 @@ namespace DungeonCrawler.CustomControls
                 | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer
                 | ControlStyles.ResizeRedraw, true);
 
+            BackColor = Color.Transparent;
+            FlatStyle = FlatStyle.Flat;
+            FlatAppearance.BorderSize = 0;
+            FlatAppearance.CheckedBackColor = Color.Transparent;
+            FlatAppearance.MouseDownBackColor = Color.Transparent;
+            FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BackgroundImageLayout = ImageLayout.Center;
             imgAtt.SetWrapMode(WrapMode.Tile);
         }
 
@@ -54,12 +61,12 @@ namespace DungeonCrawler.CustomControls
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            ///*
             base.OnPaint(e);
-            e.Graphics.CompositingQuality = CompositingQuality.GammaCorrected;
             e.Graphics.FillCustomBorder(look, DisplayRectangle, borderDimensions);
             e.Graphics.FillRectangle(bodyHighlight, 3, 3, DisplayRectangle.Width - 6, DisplayRectangle.Height / 2 - 4);
 
-            if(BackgroundImage != null)
+            if (BackgroundImage != null)
             {
                 if (BackgroundImageLayout == ImageLayout.Center)
                     e.Graphics.DrawImage(BackgroundImage, (DisplayRectangle.Width - BackgroundImage.Width) / 2, (DisplayRectangle.Height - BackgroundImage.Height) / 2);
@@ -70,12 +77,7 @@ namespace DungeonCrawler.CustomControls
             }
 
             e.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor), DisplayRectangle, sf);
-        }
-
-        protected override void OnPaintBackground(PaintEventArgs pevent)
-        {
-            base.OnPaintBackground(pevent);
-            pevent.Graphics.FillRectangle(new SolidBrush(BackColor), DisplayRectangle);
+            //*/
         }
     }
 }
