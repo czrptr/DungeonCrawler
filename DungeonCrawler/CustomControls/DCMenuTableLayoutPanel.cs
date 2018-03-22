@@ -9,9 +9,9 @@ using DungeonCrawler.Graphix;
 
 namespace DungeonCrawler.CustomControls
 {
-    class MenuPanel : Panel
+    class DCMenuTableLayoutPanel : TableLayoutPanel
     {
-        public MenuPanel() : base()
+        public DCMenuTableLayoutPanel() : base()
         {
             // Set style optimized for user drawn controls
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.DoubleBuffer
