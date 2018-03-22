@@ -16,8 +16,6 @@ namespace DungeonCrawler.Graphix
             graphics.FillRectangle(brush, x, y, 1, 1);
         }
 
-        //public static void Fill(this Graphics graphics, Brush brush);
-
         public static void FillCustomBorder(this Graphics graphics, Bitmap borderImage, Rectangle drawRect, Rectangle cutRect)
         {
             //graphics.FillRectangle(Brushes.LightGreen, drawRect);
@@ -35,14 +33,17 @@ namespace DungeonCrawler.Graphix
             sliceRect = new Rectangle(drawRect.X, drawRect.Y, cutRect.X, cutRect.Y);
             graphics.DrawImage(borderImage, sliceRect, 0, 0, sliceRect.Width, sliceRect.Height, GraphicsUnit.Pixel, imgAtt);
 
-            sliceRect = new Rectangle(drawRect.X + drawRect.Width - leftX, drawRect.Y, leftX, cutRect.Y);
+            sliceRect.X += drawRect.Width - leftX;
+            sliceRect.Width = leftX;
             graphics.DrawImage(borderImage, sliceRect, cutRect.X + cutRect.Width, 0, sliceRect.Width, sliceRect.Height, GraphicsUnit.Pixel, imgAtt);
 
-            sliceRect = new Rectangle(drawRect.X, drawRect.Y + drawRect.Height - bottomY, cutRect.X, bottomY);
-            graphics.DrawImage(borderImage, sliceRect, 0, cutRect.Y + cutRect.Height, sliceRect.Width, sliceRect.Height, GraphicsUnit.Pixel, imgAtt);
-
-            sliceRect = new Rectangle(drawRect.X + drawRect.Width - leftX, drawRect.Y + drawRect.Height - bottomY, leftX, bottomY);
+            sliceRect.Y += drawRect.Height - bottomY;
+            sliceRect.Height = bottomY;
             graphics.DrawImage(borderImage, sliceRect, cutRect.X + cutRect.Width, cutRect.Y + cutRect.Height, sliceRect.Width, sliceRect.Width, GraphicsUnit.Pixel, imgAtt);
+
+            sliceRect.X = drawRect.X;
+            sliceRect.Width = cutRect.X;
+            graphics.DrawImage(borderImage, sliceRect, 0, cutRect.Y + cutRect.Height, sliceRect.Width, sliceRect.Height, GraphicsUnit.Pixel, imgAtt);
 
             // Prepare new Bitmap for storing edge tiles
             // For some reason even if the sliceRect is perfet ti still doesn't draw correctly
@@ -50,7 +51,7 @@ namespace DungeonCrawler.Graphix
             // graphics.DrawImage(borderImage, sliceRect, cutRect.X, 0, cutRect.Width, cutRect.Y, GraphicsUnit.Pixel, imgAtt);
             Bitmap edgeSprite;
 
-            // Drawing each border (from top counterclockwise)
+            // Drawing each border (top, bottom, left, right)
             sliceRect = new Rectangle(drawRect.X + cutRect.X, drawRect.Y, drawRect.Width - cutRect.X - leftX, cutRect.Y);
             edgeSprite = new Bitmap(cutRect.Width, cutRect.Y);
             Graphics.FromImage(edgeSprite).DrawImage(borderImage, -cutRect.X, 0);
@@ -73,6 +74,7 @@ namespace DungeonCrawler.Graphix
             Graphics.FromImage(edgeSprite).DrawImage(borderImage, -cutRect.X - cutRect.Width, -cutRect.Y);
             graphics.DrawImage(edgeSprite, sliceRect, 0, 0, edgeSprite.Width, edgeSprite.Height, GraphicsUnit.Pixel, imgAtt);
 
+            // Drawing body
             sliceRect = new Rectangle(drawRect.X + cutRect.X, drawRect.Y + cutRect.Y, drawRect.Width - cutRect.X - leftX, drawRect.Height - cutRect.Y - bottomY);
             edgeSprite = new Bitmap(cutRect.Width, cutRect.Height);
             Graphics.FromImage(edgeSprite).DrawImage(borderImage, -cutRect.X, -cutRect.Y);
