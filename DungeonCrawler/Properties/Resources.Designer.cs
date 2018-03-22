@@ -83,6 +83,16 @@ namespace DungeonCrawler.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Form_Background {
+            get {
+                object obj = ResourceManager.GetObject("Form_Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Icon_Close {
             get {
                 object obj = ResourceManager.GetObject("Icon_Close", resourceCulture);
@@ -123,9 +133,9 @@ namespace DungeonCrawler.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Titlebar {
+        internal static System.Drawing.Bitmap Titlebar_Background {
             get {
-                object obj = ResourceManager.GetObject("Titlebar", resourceCulture);
+                object obj = ResourceManager.GetObject("Titlebar_Background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
