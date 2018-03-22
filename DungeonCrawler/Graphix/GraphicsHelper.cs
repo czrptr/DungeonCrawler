@@ -80,5 +80,64 @@ namespace DungeonCrawler.Graphix
             Graphics.FromImage(edgeSprite).DrawImage(borderImage, -cutRect.X, -cutRect.Y);
             graphics.DrawImage(edgeSprite, sliceRect, 0, 0, edgeSprite.Width, edgeSprite.Height, GraphicsUnit.Pixel, imgAtt);
         }
+
+        public static void DrawCustomBorder(this Graphics graphics, Bitmap borderImage, Rectangle drawRect, Rectangle cutRect)
+        {
+            //graphics.FillRectangle(Brushes.LightGreen, drawRect);
+            int leftX = borderImage.Width - cutRect.X - cutRect.Width;
+            int bottomY = borderImage.Height - cutRect.Y - cutRect.Height;
+
+            // Initialize WrapMode for drawing the edges and fill
+            ImageAttributes imgAtt = new ImageAttributes();
+            imgAtt.SetWrapMode(WrapMode.Tile);
+
+            // Prepare new Rectangle for drawing slices
+            Rectangle sliceRect;
+
+            // Drawing each corner (from top-left counterclockwise)
+            sliceRect = new Rectangle(drawRect.X, drawRect.Y, cutRect.X, cutRect.Y);
+            graphics.DrawImage(borderImage, sliceRect, 0, 0, sliceRect.Width, sliceRect.Height, GraphicsUnit.Pixel, imgAtt);
+
+            sliceRect.X += drawRect.Width - leftX;
+            sliceRect.Width = leftX;
+            graphics.DrawImage(borderImage, sliceRect, cutRect.X + cutRect.Width, 0, sliceRect.Width, sliceRect.Height, GraphicsUnit.Pixel, imgAtt);
+
+            sliceRect.Y += drawRect.Height - bottomY;
+            sliceRect.Height = bottomY;
+            graphics.DrawImage(borderImage, sliceRect, cutRect.X + cutRect.Width, cutRect.Y + cutRect.Height, sliceRect.Width, sliceRect.Width, GraphicsUnit.Pixel, imgAtt);
+
+            sliceRect.X = drawRect.X;
+            sliceRect.Width = cutRect.X;
+            graphics.DrawImage(borderImage, sliceRect, 0, cutRect.Y + cutRect.Height, sliceRect.Width, sliceRect.Height, GraphicsUnit.Pixel, imgAtt);
+
+            // Prepare new Bitmap for storing edge tiles
+            // For some reason even if the sliceRect is perfet ti still doesn't draw correctly
+            // It draws sliceRect.Width + 1
+            // graphics.DrawImage(borderImage, sliceRect, cutRect.X, 0, cutRect.Width, cutRect.Y, GraphicsUnit.Pixel, imgAtt);
+            Bitmap edgeSprite;
+
+            // Drawing each border (top, bottom, left, right)
+            sliceRect = new Rectangle(drawRect.X + cutRect.X, drawRect.Y, drawRect.Width - cutRect.X - leftX, cutRect.Y);
+            edgeSprite = new Bitmap(cutRect.Width, cutRect.Y);
+            Graphics.FromImage(edgeSprite).DrawImage(borderImage, -cutRect.X, 0);
+            graphics.DrawImage(edgeSprite, sliceRect, 0, 0, edgeSprite.Width, edgeSprite.Height, GraphicsUnit.Pixel, imgAtt);
+
+            sliceRect.Y += drawRect.Height - bottomY;
+            sliceRect.Height = bottomY;
+            edgeSprite = new Bitmap(cutRect.Width, bottomY);
+            Graphics.FromImage(edgeSprite).DrawImage(borderImage, -cutRect.X, -cutRect.Y - cutRect.Height);
+            graphics.DrawImage(edgeSprite, sliceRect, 0, 0, edgeSprite.Width, edgeSprite.Height, GraphicsUnit.Pixel, imgAtt);
+
+            sliceRect = new Rectangle(drawRect.X, drawRect.Y + cutRect.Y, cutRect.X, drawRect.Height - cutRect.Y - bottomY);
+            edgeSprite = new Bitmap(cutRect.X, cutRect.Height);
+            Graphics.FromImage(edgeSprite).DrawImage(borderImage, 0, -cutRect.Y);
+            graphics.DrawImage(edgeSprite, sliceRect, 0, 0, edgeSprite.Width, edgeSprite.Height, GraphicsUnit.Pixel, imgAtt);
+
+            sliceRect.X += drawRect.Width - leftX;
+            sliceRect.Width = leftX;
+            edgeSprite = new Bitmap(leftX, cutRect.Height);
+            Graphics.FromImage(edgeSprite).DrawImage(borderImage, -cutRect.X - cutRect.Width, -cutRect.Y);
+            graphics.DrawImage(edgeSprite, sliceRect, 0, 0, edgeSprite.Width, edgeSprite.Height, GraphicsUnit.Pixel, imgAtt);
+        }
     }
 }
