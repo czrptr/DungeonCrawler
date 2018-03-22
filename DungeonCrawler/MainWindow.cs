@@ -8,30 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
-using DungeonCrawler.Graphix;
 using DungeonCrawler.CustomControls;
+using System.IO;
+using System.Drawing.Text;
 
 namespace DungeonCrawler
 {
-    public partial class MainWindow : Form
+    public partial class MainWindow : DCForm
     {
+
         public MainWindow()
         {
-            // Set style optimized for user drawn controls
-            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.DoubleBuffer
-                | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer
-                | ControlStyles.ResizeRedraw, true);
             InitializeComponent();
         }
 
-        protected override void OnPaint(PaintEventArgs e)
+        private void MainWindow_Load(object sender, EventArgs e)
         {
-            base.OnPaint(e);
-            e.Graphics.DrawLine(Pens.Black, 0, 4, 0, DisplayRectangle.Height - 2);
-            e.Graphics.DrawLine(Pens.Black, DisplayRectangle.Width - 1 , 4, DisplayRectangle.Width - 1, DisplayRectangle.Height - 2);
-            e.Graphics.DrawLine(Pens.Black, 1, DisplayRectangle.Height - 1, DisplayRectangle.Width - 2, DisplayRectangle.Height - 1);
-            e.Graphics.FillPixel(Brushes.DarkViolet, 0, DisplayRectangle.Height - 1);
-            e.Graphics.FillPixel(Brushes.DarkViolet, DisplayRectangle.Width - 1, DisplayRectangle.Height - 1);
+
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

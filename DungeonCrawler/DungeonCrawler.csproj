@@ -47,22 +47,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomControls\MenuButton.cs">
+    <Compile Include="CustomControls\DCMenuButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CustomControls\MenuPanel.cs">
+    <Compile Include="CustomControls\DCMenuPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CustomControls\MenuTableLayoutPanel.cs">
+    <Compile Include="CustomControls\DCMenuTableLayoutPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CustomControls\TitleBar.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CustomControls\TitleBar.Designer.cs">
-      <DependentUpon>TitleBar.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Graphix\FontManager.cs" />
     <Compile Include="Graphix\GraphicsHelper.cs" />
+    <Compile Include="CustomControls\DCForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomControls\DCForm.Designer.cs">
+      <DependentUpon>DCForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,23 +72,25 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CustomControls\DCForm.resx">
+      <DependentUpon>DCForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -113,10 +116,16 @@
     <None Include="Resources\Controls\Panel_Menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Controls\Titlebar.png" />
+    <None Include="Resources\Controls\Titlebar_Background.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Icons\Icon_Minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Controls\Form_Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Fonts\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
