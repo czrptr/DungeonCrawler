@@ -50,6 +50,18 @@
     <Compile Include="CustomControls\MenuButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CustomControls\MenuPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\MenuTableLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\TitleBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\TitleBar.Designer.cs">
+      <DependentUpon>TitleBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Graphix\GraphicsHelper.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -59,6 +71,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CustomControls\TitleBar.resx">
+      <DependentUpon>TitleBar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -89,13 +104,22 @@
     <None Include="Resources\Sprite_ERROR.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Buttons\Button_Menu_Colored.png" />
+    <None Include="Resources\Controls\Button_Menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Buttons\Button_Menu_Colored_Hover.png" />
+    <None Include="Resources\Controls\Button_Menu_Hover.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Icons\Icon_Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Controls\Panel_Menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Controls\Titlebar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\Icon_Minimize.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

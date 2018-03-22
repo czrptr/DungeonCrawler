@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using DungeonCrawler.Graphix;
 using DungeonCrawler.CustomControls;
 
 namespace DungeonCrawler
@@ -23,8 +24,14 @@ namespace DungeonCrawler
             InitializeComponent();
         }
 
-        private void MainWindow_Load(object sender, EventArgs e)
+        protected override void OnPaint(PaintEventArgs e)
         {
+            base.OnPaint(e);
+            e.Graphics.DrawLine(Pens.Black, 0, 4, 0, DisplayRectangle.Height - 2);
+            e.Graphics.DrawLine(Pens.Black, DisplayRectangle.Width - 1 , 4, DisplayRectangle.Width - 1, DisplayRectangle.Height - 2);
+            e.Graphics.DrawLine(Pens.Black, 1, DisplayRectangle.Height - 1, DisplayRectangle.Width - 2, DisplayRectangle.Height - 1);
+            e.Graphics.FillPixel(Brushes.DarkViolet, 0, DisplayRectangle.Height - 1);
+            e.Graphics.FillPixel(Brushes.DarkViolet, DisplayRectangle.Width - 1, DisplayRectangle.Height - 1);
         }
     }
 }
