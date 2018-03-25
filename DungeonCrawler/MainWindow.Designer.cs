@@ -28,43 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnTest = new DungeonCrawler.CustomControls.DCMenuButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dcMenuButtonControl1 = new DungeonCrawler.CustomControls.DCMenuButtonControl();
+            this.dcMenuButtonControl2 = new DungeonCrawler.CustomControls.DCMenuButtonControl();
             this.SuspendLayout();
             // 
-            // btnTest
+            // button1
             // 
-            this.btnTest.BackColor = System.Drawing.Color.Transparent;
-            this.btnTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnTest.FlatAppearance.BorderSize = 0;
-            this.btnTest.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnTest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnTest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTest.Location = new System.Drawing.Point(141, 178);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(259, 105);
-            this.btnTest.TabIndex = 3;
-            this.btnTest.Text = "test";
-            this.btnTest.UseVisualStyleBackColor = false;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            this.button1.Location = new System.Drawing.Point(114, 188);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // dcMenuButtonControl1
+            // 
+            this.dcMenuButtonControl1.BackColor = System.Drawing.Color.Transparent;
+            this.dcMenuButtonControl1.Location = new System.Drawing.Point(253, 118);
+            this.dcMenuButtonControl1.Name = "dcMenuButtonControl1";
+            this.dcMenuButtonControl1.Size = new System.Drawing.Size(109, 70);
+            this.dcMenuButtonControl1.TabIndex = 5;
+            this.dcMenuButtonControl1.Text = "dcMenuButtonControl1";
+            // 
+            // dcMenuButtonControl2
+            // 
+            this.dcMenuButtonControl2.BackColor = System.Drawing.Color.Transparent;
+            this.dcMenuButtonControl2.Location = new System.Drawing.Point(339, 151);
+            this.dcMenuButtonControl2.Name = "dcMenuButtonControl2";
+            this.dcMenuButtonControl2.Size = new System.Drawing.Size(121, 60);
+            this.dcMenuButtonControl2.TabIndex = 6;
+            this.dcMenuButtonControl2.Text = "dcMenuButtonControl2";
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(556, 399);
-            this.Controls.Add(this.btnTest);
+            this.ClientSize = new System.Drawing.Size(558, 367);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dcMenuButtonControl2);
+            this.Controls.Add(this.dcMenuButtonControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainWindow";
             this.Text = "MainWindow";
             this.Load += new System.EventHandler(this.MainWindow_Load);
-            this.Controls.SetChildIndex(this.btnTest, 0);
+            this.Controls.SetChildIndex(this.dcMenuButtonControl1, 0);
+            this.Controls.SetChildIndex(this.dcMenuButtonControl2, 0);
+            this.Controls.SetChildIndex(this.button1, 0);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private CustomControls.DCMenuButton btnTest;
+        private System.Windows.Forms.Button button1;
+        private CustomControls.DCMenuButtonControl dcMenuButtonControl1;
+        private CustomControls.DCMenuButtonControl dcMenuButtonControl2;
     }
 }

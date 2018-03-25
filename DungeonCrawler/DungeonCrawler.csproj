@@ -50,6 +50,10 @@
     <Compile Include="CustomControls\DCMenuButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CustomControls\DCMenuButtonControl.cs">
+      <SubType>Component</SubType>
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="CustomControls\DCMenuPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -72,9 +76,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CustomControls\DCForm.resx">
-      <DependentUpon>DCForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>

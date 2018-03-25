@@ -1,28 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DungeonCrawler.Graphix;
+﻿// //-----------------------------------------------------------------------------
+// // <copyright file="DCForm.cs">
+// //     Copyright (c) Cezar Petriuc. All rights reserved.
+// // </copyright>
+// //-----------------------------------------------------------------------------
 
 namespace DungeonCrawler.CustomControls
 {
+    using System;
+    using System.Drawing;
+    using System.Windows.Forms;
+    using DungeonCrawler.Graphix;
+    using DungeonCrawler.Properties;
+
     public partial class DCForm : Form
     {
-        private bool _mouseDown = false;
+        #region Fields
+
+        private bool _mouseDown;
         private Point clickLocation;
 
-        private Bitmap titleImg = Properties.Resources.Titlebar_Background;
-        private Rectangle titleImgCut = new Rectangle(3, 10, 1, 1);
+        private readonly Bitmap titleImg = Resources.Titlebar_Background;
+        private readonly Rectangle titleImgCut = new Rectangle(3, 10, 1, 1);
         private Rectangle titleImgDisplay;
 
-        private Bitmap backImg = Properties.Resources.Form_Background;
-        private Rectangle backImgCut = new Rectangle(12, 11, 1, 1);
+        private readonly Bitmap backImg = Resources.Form_Background;
+        private readonly Rectangle backImgCut = new Rectangle(12, 11, 1, 1);
         private Rectangle backImgDisplay;
+
+        #endregion
+
+        #region Constructors
 
         public DCForm()
         {
@@ -37,22 +44,9 @@ namespace DungeonCrawler.CustomControls
             backImgDisplay = new Rectangle(0, 30, Width, Height - 30);
         }
 
-        private void pnlTitle_MouseDown(object sender, MouseEventArgs e)
-        {
-            _mouseDown = true;
-            clickLocation = e.Location;
-        }
+        #endregion
 
-        private void pnlTitle_MouseUp(object sender, MouseEventArgs e)
-        {
-            _mouseDown = false;
-        }
-
-        private void pnlTitle_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (_mouseDown)
-                Location = new Point(Location.X - clickLocation.X + e.X, Location.Y - clickLocation.Y + e.Y);
-        }
+        #region Methods
 
         protected override void OnSizeChanged(EventArgs e)
         {
@@ -78,6 +72,23 @@ namespace DungeonCrawler.CustomControls
             pnlTitle.Refresh();
         }
 
+        private void pnlTitle_MouseDown(object sender, MouseEventArgs e)
+        {
+            _mouseDown = true;
+            clickLocation = e.Location;
+        }
+
+        private void pnlTitle_MouseUp(object sender, MouseEventArgs e)
+        {
+            _mouseDown = false;
+        }
+
+        private void pnlTitle_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_mouseDown)
+                Location = new Point(Location.X - clickLocation.X + e.X, Location.Y - clickLocation.Y + e.Y);
+        }
+
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
@@ -92,5 +103,7 @@ namespace DungeonCrawler.CustomControls
         {
             throw new Exception("Controls cannot be added to TitleBar");
         }
+
+        #endregion
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using DungeonCrawler.Graphix;
 using DungeonCrawler.CustomControls;
 using System.IO;
 using System.Drawing.Text;
@@ -24,12 +25,7 @@ namespace DungeonCrawler
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnTest_Click(object sender, EventArgs e)
-        {
-
+            
         }
     }
 }
