@@ -47,26 +47,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomControls\DCMenuButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="CustomControls\DCMenuButtonControl.cs">
+    <Compile Include="CustomControls\MenuButton.cs">
       <SubType>Component</SubType>
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
-    <Compile Include="CustomControls\DCMenuPanel.cs">
+    <Compile Include="CustomControls\MenuPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CustomControls\DCMenuTableLayoutPanel.cs">
+    <Compile Include="CustomControls\MenuTableLayoutPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Graphix\FontManager.cs" />
     <Compile Include="Graphix\GraphicsHelper.cs" />
-    <Compile Include="CustomControls\DCForm.cs">
+    <Compile Include="CustomControls\GameForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomControls\DCForm.Designer.cs">
-      <DependentUpon>DCForm.cs</DependentUpon>
+    <Compile Include="CustomControls\GameForm.Designer.cs">
+      <DependentUpon>GameForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
